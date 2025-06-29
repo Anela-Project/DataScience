@@ -46,7 +46,7 @@ def summarizer(pdf_path, query):
     if query:
 
         docs = knowledge_base.similarity_search(query)
-        llm = ChatOpenAI(model="gpt-3.5-turbo-16k", temperature=0.1)
+        llm = ChatOpenAI(model="gpt-4", temperature=0.1)
         chain = load_qa_chain(llm, chain_type="stuff")
         response = chain.run(input_documents=docs, question=query)
         return response
